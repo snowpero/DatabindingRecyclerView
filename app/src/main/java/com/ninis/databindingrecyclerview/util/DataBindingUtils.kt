@@ -44,7 +44,7 @@ class DataBindingUtils {
         fun loadImgUrlRounded(view: ImageView, url: String?) {
             Picasso.get()
                 .load(url)
-                .transform(RoundedCornersTransformation(4, 2))
+                .transform(RoundedCornersTransformation(50, 0, RoundedCornersTransformation.CornerType.ALL))
                 .into(view)
         }
 

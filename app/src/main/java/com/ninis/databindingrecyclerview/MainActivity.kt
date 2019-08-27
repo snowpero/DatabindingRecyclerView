@@ -3,6 +3,7 @@ package com.ninis.databindingrecyclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -36,7 +37,11 @@ class MainActivity : AppCompatActivity() {
     private val mainAdapter = BaseRecyclerView.Adapter<AlbumItemModel, LayoutAlbumItemRowBinding>(
         layoutResId = R.layout.layout_album_item_row,
         bindingVariableId = BR.dataModel,
-        callBack = Consumer {  }
+        callBack = Consumer {
+            Toast.makeText(this@MainActivity,
+                String.format("Selected ID : %d", it.id),
+                Toast.LENGTH_SHORT).show()
+        }
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
